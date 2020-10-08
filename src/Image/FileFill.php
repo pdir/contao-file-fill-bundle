@@ -24,7 +24,6 @@ class FileFill
 
     function run($picture)
     {
-        echo "<br>RUN!";
         if(is_string($picture))
         {
             dump('<br>is string!<br>');
@@ -32,6 +31,7 @@ class FileFill
 
         $dir = System::getContainer()->getParameter('kernel.project_dir');
         $server = System::getContainer()->getParameter('pdir_file_fill.server');
+
         dump($dir . $picture);
 
         if(!file_exists($dir . $picture))
@@ -39,7 +39,6 @@ class FileFill
             dump('Download File!');
         }
 
-        die();
         return null;
     }
 }
