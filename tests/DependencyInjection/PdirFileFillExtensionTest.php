@@ -15,7 +15,7 @@ class PdirFileFillExtensionTest extends ContaoTestCase
      */
     private $container;
 
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
 

@@ -11,7 +11,7 @@ use Pdir\FileFillBundle\PdirFileFillBundle;
 
 class PluginTest extends ContaoTestCase
 {
-    public function testReturnsTheBundles(): void
+    public function testReturnsTheBundles()
     {
         $parser = $this->createMock(ParserInterface::class);
 
