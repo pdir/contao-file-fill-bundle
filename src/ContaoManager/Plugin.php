@@ -13,11 +13,23 @@
 
 namespace Pdir\FileFillBundle\ContaoManager;
 
+use Contao\CoreBundle\ContaoCoreBundle;
+use Contao\ManagerPlugin\Bundle\BundlePluginInterface;
 use Contao\ManagerPlugin\Config\ConfigPluginInterface;
+use Contao\ManagerPlugin\Bundle\Parser\ParserInterface;
+use Pdir\FileFillBundleBundle\PdirFileFillBundleBundle;
 use Symfony\Component\Config\Loader\LoaderInterface;
 
-class Plugin implements ConfigPluginInterface
+class Plugin implements BundlePluginInterface, ConfigPluginInterface
 {
+    public function getBundles(ParserInterface $parser)
+    {
+        return [
+            BundleConfig::create(PdirFileFillBundleBundle::class)
+                ->setLoadAfter([ContaoCoreBundle::class])
+        ];
+    }
+
     public function registerContainerConfiguration(LoaderInterface $loader, array $managerConfig)
     {
         $loader->load('@PdirFileFillBundle/Resources/config/config.yml');
