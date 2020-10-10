@@ -17,7 +17,7 @@ use Contao\CoreBundle\ContaoCoreBundle;
 use Contao\ManagerPlugin\Bundle\BundlePluginInterface;
 use Contao\ManagerPlugin\Config\ConfigPluginInterface;
 use Contao\ManagerPlugin\Bundle\Parser\ParserInterface;
-use Pdir\FileFillBundleBundle\PdirFileFillBundleBundle;
+use Pdir\FileFillBundle\PdirFileFillBundle;
 use Symfony\Component\Config\Loader\LoaderInterface;
 
 class Plugin implements BundlePluginInterface, ConfigPluginInterface
@@ -25,7 +25,7 @@ class Plugin implements BundlePluginInterface, ConfigPluginInterface
     public function getBundles(ParserInterface $parser)
     {
         return [
-            BundleConfig::create(PdirFileFillBundleBundle::class)
+            BundleConfig::create(PdirFileFillBundle::class)
                 ->setLoadAfter([ContaoCoreBundle::class])
         ];
     }
